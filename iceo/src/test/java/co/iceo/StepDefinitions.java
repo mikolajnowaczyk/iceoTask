@@ -54,8 +54,8 @@ public class StepDefinitions {
 	@Given("As a valid user I want to get latest exchange rate for {string}")
 	public void as_a_valid_user_i_want_to_get_latest_exchange_rate_for(String baseCurrency) {
 		setBaseCurrency(baseCurrency);
-		request = RestAssured.given().log().all().header("Content-Type", "application/json")
-				.header("apikey", VALID_API_KEY).queryParam("base", getBaseCurrency());
+		request = RestAssured.given().header("Content-Type", "application/json").header("apikey", VALID_API_KEY)
+				.queryParam("base", getBaseCurrency());
 	}
 
 	@Given("As a valid user I want to get latest exchange rate between base {string} and {string}")
@@ -63,16 +63,14 @@ public class StepDefinitions {
 			String desiredCurrencies) {
 		setBaseCurrency(baseCurrency.equals("-----") ? "EUR" : baseCurrency);
 		setDesiredCurrencies(desiredCurrencies);
-		request = RestAssured.given().log().all().header("Content-Type", "application/json")
-				.header("apikey", VALID_API_KEY).queryParam("base", getBaseCurrency())
-				.queryParam("symbols", getDesiredCurrencies());
+		request = RestAssured.given().header("Content-Type", "application/json").header("apikey", VALID_API_KEY)
+				.queryParam("base", getBaseCurrency()).queryParam("symbols", getDesiredCurrencies());
 	}
 
 	@Given("As a {string} I want to get latest exchange rate for USD")
 	public void as_an_user_i_want_to_get_latest_exchange_rate_for(String authMethod) {
 		setBaseCurrency("USD");
-		request = RestAssured.given().log().all().header("Content-Type", "application/json").queryParam("base",
-				getBaseCurrency());
+		request = RestAssured.given().header("Content-Type", "application/json").queryParam("base", getBaseCurrency());
 		if (authMethod.equals("WRONG_AUTH")) {
 			request.header("apikey", INVALID_API_KEY);
 		}
