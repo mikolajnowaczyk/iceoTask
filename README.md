@@ -1,6 +1,8 @@
 # iceoTask
 Recturment task for ICEO
+
 Description for the task is as below:
+
 Cover
 https://api.apilayer.com/exchangerates_data/latest endpoint with the tests:
 - Create BDD scenarios with Cucumber in Java/JavaScript
