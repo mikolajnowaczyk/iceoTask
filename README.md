@@ -15,7 +15,7 @@ BDD scenarios are located in getLatest folder (src/test/java/co/iceo/getLatest).
 - 200 - cases for single base currency (with no desired currency) and scenario for specific pairs (including default no -> EUR)
 - 400 - cases for wrong non-existent base currency and non-existent desired currency
 - 401 - cases for no and wrong api key - unauthorized
-- 403 - no cases, becasue api doens't handle such an option - you either have correct api key (200) or not (401)
+- 403 - no cases, becasue api doesn't handle such an option - either have correct api key (200) or not (401)
 - 404 - single case for typo in resource
 
 Tests are done in Java with Rest Assured and JUnit report generation. After test run simple report is generated in target/cucumber-report folder.
